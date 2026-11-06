@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Yu-Gi-Oh! Jo-Ken-Po Edition - um jogo de cartas no estilo pedra-papel-tesoura feito em JavaScript puro."
+    />
+    <title>Yu-Gi-Oh! | Jo-Ken-Po Edition</title>
+
+    <link rel="shortcut icon" href="src/assets/favicon/Favicon.ico" type="image/x-icon" />
+
+    <!-- Fonte retro -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="src/styles/reset.css" />
+    <link rel="stylesheet" href="src/styles/buttons.css" />
+    <link rel="stylesheet" href="src/styles/containers_and_frames.css" />
+    <link rel="stylesheet" href="src/styles/main.css" />
+  </head>
+
+  <body>
+    <!-- Trilha sonora de fundo -->
+    <audio id="bgm" loop>
+      <source src="src/assets/audios/egyptian_duel.mp3" type="audio/mpeg" />
+    </audio>
+
+    <main class="main-content">
+      <!-- Placar -->
+      <section class="score framed-golden-2" aria-label="Placar do duelo">
+        <p id="score-points">Vitórias: 0 | Derrotas: 0</p>
+      </section>
+
+      <!-- Campo do oponente -->
+      <section class="field-side opponent">
+        <div id="cpu-cards" class="card-row" aria-label="Cartas do oponente">
+          <!-- cartas viradas (card-back) inseridas via JS -->
+        </div>
+        <div id="cpu-field-card" class="played-card" aria-live="polite">
+          <!-- carta jogada pela CPU -->
+        </div>
+      </section>
+
+      <!-- Centro: resultado e ação -->
+      <section class="field-center">
+        <p id="state-message" class="state-message" aria-live="polite"></p>
+        <button
+          id="next-duel"
+          class="rpgui-button golden next-duel is-hidden"
+          type="button"
+        >
+          <p>Próximo duelo</p>
+        </button>
+      </section>
+
+      <!-- Campo do jogador -->
+      <section class="field-side player">
+        <div id="player-field-card" class="played-card" aria-live="polite">
+          <!-- carta jogada pelo jogador -->
+        </div>
+        <div id="player-cards" class="card-row" aria-label="Suas cartas">
+          <!-- cartas da mão inseridas via JS -->
+        </div>
+      </section>
+
+      <!-- Painel de detalhes da carta em destaque -->
+      <aside class="card-detail framed-grey" aria-label="Detalhes da carta">
+        <img
+          id="card-image"
+          class="card-detail__image is-hidden"
+          src=""
+          alt=""
+        />
+        <h2 id="card-name" class="card-detail__name">Selecione</h2>
+        <p id="card-type" class="card-detail__type">uma carta</p>
+      </aside>
+    </main>
+
+    <script src="src/scripts/engine.js" type="module"></script>
+  </body>
+</html>
